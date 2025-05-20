@@ -1,0 +1,1024 @@
+/* Default styling for large screens */
+.home-page h1 { 
+    color: rgb(0, 0, 0); /* Sets the color of the heading text */
+    text-align: center; /* Centers the heading within its container */
+    font-size: 120px; /* Defines the font size for the heading */
+    font-family: 'Glitch Goblin', 'sans-serif'; /* Specifies the font style */
+    position: relative; /* Allows adjustment of its position relative to its normal placement */
+    z-index: 1; /* Ensures the heading appears above other elements */
+    top: -190px; /* Moves the heading upwards */
+    animation: glitch-animation 2s infinite; /* Applies a glitch animation */
+    overflow: hidden; /* Prevents content overflow */
+}
+
+/* Pseudo-elements for glitch distortion layers */
+.home-page h1::before, 
+.home-page h1::after { 
+    content: attr(data-text); /* Creates duplicate text layers for the glitch effect */
+    position: absolute; /* Positions the pseudo-elements relative to the original text */
+    left: 0; /* Aligns the glitch layers to the left */
+    top: 0; /* Aligns the glitch layers to the top */
+    width: 100%; /* Ensures they occupy the full width */
+    height: 100%; /* Ensures they occupy the full height */
+    z-index: -1; /* Places these layers behind the main heading */
+    background: transparent; /* Ensures no background interferes */
+}
+
+/* Red glitch layer */
+.home-page h1::before { 
+    color: rgb(255, 0, 0); /* Sets the distorted layer color to red */
+    clip-path: inset(0 0 50% 0); /* Clips the top half of the text */
+    animation: glitch-layer 1.5s infinite; /* Animates the glitch effect */
+}
+
+/* Cyan glitch layer */
+.home-page h1::after { 
+    color: cyan; /* Sets the distorted layer color to cyan */
+    clip-path: inset(50% 0 0 0); /* Clips the bottom half of the text */
+    animation: glitch-layer 2s infinite; /* Animates the glitch effect */
+}
+
+/* Main glitch animation for h1 */
+@keyframes glitch-text { 
+    0%, 100% { transform: translate(0); } /* Default position */
+    25% { transform: translate(-3px, 2px); } /* Moves slightly */
+    50% { transform: translate(2px, -3px); } /* Moves differently */
+    75% { transform: translate(-2px, -1px); } /* Another variation */
+}
+
+/* Glitch animation for distortion layers */
+/* This animation creates a subtle, jittery movement effect for glitch distortion */
+@keyframes glitch-layer { 
+    0% { transform: translate(0); } /* Default position, no movement */
+    20% { transform: translate(-3px, -3px); } /* Shifts slightly up and left */
+    40% { transform: translate(3px, 3px); } /* Moves down and right */
+    60% { transform: translate(-2px, 2px); } /* Small jitter effect in opposite direction */
+    80% { transform: translate(2px, -2px); } /* Quick shift back */
+    100% { transform: translate(0); } /* Returns to normal position */
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+.home-page #myVideo { 
+    position: fixed; /* Keeps the video fixed in place */
+    right: 0; /* Aligns the video to the right */
+    bottom: 0; /* Aligns the video to the bottom */
+    min-width: 100%; /* Ensures the video covers the entire width */
+    min-height: 100%; /* Ensures the video covers the entire height */
+    z-index: -1; /* Places the video behind other elements */
+    pointer-events: none; /* Prevents interaction with the video */
+}
+
+/* Style for body and html to remove margins and enable full-screen video */
+.home-page body, html { 
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    width: 100%; /* Ensures the entire screen is used */
+    height: 100%; /* Ensures full-page height */
+    overflow: hidden; /* Prevents scrolling */
+}
+
+/* Style for the video element */
+.home-page video { 
+    position: absolute; /* Ensures the video stays fixed in place */
+    top: 0; /* Aligns the video at the top */
+    left: 0; /* Aligns the video at the left */
+    width: auto; /* Keeps width adaptable */
+    height: auto; /* Keeps height adaptable */
+    z-index: -1; /* Places the video behind other elements */
+    object-fit: cover; /* Ensures the video stretches properly */
+    width: 100%; /* Covers the entire width */
+    height: 100%; /* Covers the entire height */
+}
+
+/* Content over the video */
+.home-page .content { 
+    position: relative; /* Positions content above the video */
+    z-index: 1; /* Ensures content appears above video */
+    color: white; /* Sets text color */
+    font-family: Arial, sans-serif; /* Sets font style */
+    text-align: center; /* Centers text */
+    padding: 20px; /* Adds spacing */
+}
+
+/* Styling for paragraph text */
+.home-page p { 
+    font-size: 25px; /* Adjusts font size */
+    font-family: 'Glitch Goblin', sans-serif; /* Uses a specific font */
+    color: #ffda33; /* Sets text color */
+}
+
+/* Style for body and html */
+.home-page body, html { 
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    height: 100%; /* Ensures full height */
+}
+
+/* Style for the container */
+.home-page .container { 
+    position: relative; /* Keeps elements positioned within the container */
+    height: 100%; /* Defines full height */
+}
+
+/* Style for the paragraph */
+.home-page p { 
+    position: absolute; /* Ensures absolute positioning */
+    bottom: 140px; /* Distance from the bottom */
+    left: 50%; /* Align to the middle horizontally */
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 20px; /* Center align adjustment */
+ }
+   
+/* Responsive styling for smaller screens */
+@media screen and (max-width: 768px) {
+    .home-page h1 {
+        font-size: 40px; /* Adjusted heading font size */
+    }
+
+    .home-page p {
+        font-size: 16px; /* Adjusted paragraph font size */
+    }
+
+    .home-page video {
+        object-fit: contain; /* Ensure the video scales appropriately */
+    }
+}
+
+
+/* Style for the button container */
+.home-page .top-right-buttons {
+    position: absolute;
+    top: 160px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    gap: 20px; /* Space between buttons */
+    z-index: 1; /* Ensure buttons stay above other elements */
+}
+
+/* Style for the individual buttons */
+.home-page .top-right-buttons button {
+    font-size: 20px; /* Sets the text size of the button */
+    padding: 10px 15px; /* Adds space inside the button for better appearance */
+    background-color: #33cfff; /* Defines the button background color (light blue) */
+    color: black; /* Sets the text color */
+    margin: 10px 0; /* Adds vertical spacing between buttons */
+    border: 5px solid transparent; /* Creates a transparent border */
+    border-radius: 5px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+    transition: all 0.3s ease; /* Smooth transition effect when hovered */
+}
+
+
+/* Hover effect for buttons */
+.home-page .top-right-buttons button:hover {
+    background-color: rgb(0, 255, 191); /* Change color on hover */
+    border-color: red;  /* Border color of the button */
+    border-width: 7px;  /* Border colored width */
+}
+/* Styling for dropdown menu links */
+.home-page .dropdown-content a {
+    font-family: 'Glitch Goblin', sans-serif; /* Sets the font style for the links */
+    font-size: 17px; /* Defines the text size */
+    color: rgb(0, 0, 0); /* Sets the text color to black */
+    background-color: rgb(255, 247, 0); /* Sets the background color to yellow */
+    padding: 7px 16px; /* Adds space inside the link for better readability */
+    text-decoration: none; /* Removes the default underline on links */
+    display: block; /* Ensures links stack vertically instead of inline */
+    border-bottom: 7px solid rgb(0, 21, 255); /* Adds a thick blue divider between each year link */
+}
+
+
+.home-page .logo-container img {
+    width: 80px; /* Adjust size */
+    height: -100px; /* Maintains aspect ratio */
+    opacity: 0.7; /* Controls transparency */
+}
+
+
+
+
+
+/* Style for the button container */
+.page-2 .top-right-buttons {
+    position: absolute; /* Moves the element freely within its container */
+    top: 160px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    display: flex; /* Enables flexible layout */
+    flex-direction: column; /* Arrange buttons vertically */
+    gap: 20px; /* Space between buttons */
+    z-index: 1; /* Ensure buttons stay above other elements */
+}
+
+/* Style for the individual buttons */
+.page-2 .top-right-buttons button {
+    font-size: 20px; /* Sets the text size of the button */
+    padding: 10px 15px; /* Adds space inside the button for better appearance */
+    background-color: #33cfff; /* Defines the button's background color */
+    color: black; /* Sets the button text color */
+    margin: 10px 0; /* Creates vertical spacing between buttons */
+    border: 5px solid transparent; /* Ensures the default border is invisible */
+    border-radius: 5px; /* Rounds the button edges for a smooth look */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+    transition: all 0.3s ease; /* Adds a smooth transition effect on hover */
+}
+
+/* Hover effect for buttons */
+.page-2 .top-right-buttons button:hover {
+    background-color: rgb(0, 255, 191); /* Change color on hover */
+    border-color: red;  /* Border color of the button */
+    border-width: 7px;  /* Border colored width */
+}
+
+/* Dropdown container */
+.dropdown { 
+    position: relative; /* Positions the dropdown relative to its nearest positioned ancestor */
+    display: inline-block; /* Ensures the dropdown appears inline and allows content to expand */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none; /* Initially hides the dropdown content */
+    position: absolute; /* Positions the dropdown relative to its parent */
+    background-color: #8000bb; /* Sets the background color to purple */
+    min-width: 160px; /* Defines the minimum width of the dropdown */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for a floating effect */
+    z-index: 1; /* Ensures the dropdown appears above other elements */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: rgb(255, 230, 0); /* Sets the text color to a yellow shade */
+    padding: 12px 16px; /* Adds space inside the link for better readability */
+    text-decoration: none; /* Removes the default underline on links */
+    display: block; /* Ensures links stack vertically instead of appearing inline */
+}
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Makes the dropdown visible when hovered */
+}
+
+/* Style for the container */
+.page-2 .container {
+    position: relative; /* Ensures content inside is positioned relative to this container */
+    width: 1000px; /* Defines the container's width */
+}
+
+/* Background styling */
+.page-2 {
+    background-image: url('https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/19486688/tga_news_featured_1.jpg?quality=90&strip=all&crop=1.3888888888889,0,97.222222222222,100'); /* Sets the background image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents background image from repeating */
+    background-position: center; /* Centers the background image */
+    width: 100%; /* Makes the section span the full width */
+    height: 100%; /* Makes the section span the full height */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    color: rgb(255, 242, 0); /* Sets text color to yellow */
+    font-family: 'Glitch Goblin', 'sans-serif'; /* Defines font style */
+}
+
+/* Heading styles */
+.page-2 h1 {
+    text-align: center; /* Centers the heading text */
+    margin-top: -70px; /* Moves the heading slightly upwards */
+    font-size: 75px; /* Defines the font size for the heading */
+    position: relative; /* Allows relative positioning adjustments */
+    animation: glitch-animation 2s infinite; /* Applies a glitch effect animation */
+}
+
+.page-2 h2 {
+    font-family: 'Glitch Goblin', 'sans-serif'; /* Defines font style for subheadings */
+    font-size: 25px; /* Sets font size for subheadings */
+}
+
+.page-2 p {
+    text-align: left; /* Aligns paragraph text to the left */
+    font-size: 15px; /* Sets paragraph font size */
+    line-height: 1.6; /* Adjusts line spacing for readability */
+    margin-right: 300px; /* Adds space on the right */
+    max-width: 1000px; /* Limits the maximum width of the paragraph */
+}
+
+/* Pseudo-elements for glitch distortion layers */
+.page-2 h1::before,
+.page-2 h1::after {
+    content: attr(data-text); /* Creates duplicated text layers for glitch effect */
+    position: absolute; /* Positions them absolutely within the h1 */
+    left: 0; /* Aligns them to the left */
+    top: 0; /* Aligns them to the top */
+    width: 100%; /* Ensures they cover the full width */
+    height: 100%; /* Ensures they cover the full height */
+    z-index: -1; /* Places them behind the main heading */
+    background: transparent; /* Ensures no background is applied */
+}
+
+/* Red glitch layer */
+.page-2 h1::before {
+    color: rgb(255, 0, 0); /* Sets distortion layer color to red */
+    clip-path: inset(0 0 50% 0); /* Clips the top half of the text */
+    animation: glitch-layer 1.5s infinite; /* Animates the distortion effect */
+}
+
+/* Cyan glitch layer */
+.page-2 h1::after {
+    color: rgb(0, 34, 255); /* Sets distortion layer color to cyan */
+    clip-path: inset(50% 0 0 0); /* Clips the bottom half of the text */
+    animation: glitch-layer 2s infinite; /* Animates the distortion effect */
+}
+
+/* Glitch animation */
+@keyframes glitch-layer {
+    0%, 100% { transform: translate(0); } /* Default position */
+    20% { transform: translate(-3px, -3px); } /* Moves slightly up-left */
+    40% { transform: translate(3px, 3px); } /* Moves slightly down-right */
+    60% { transform: translate(-2px, 2px); } /* Small movement variation */
+    80% { transform: translate(2px, -2px); } /* Another variation */
+}
+
+/* Logo styling */
+.page-2 .logo-container img {
+    width: 70px; /* Adjusts logo size */
+    height: -120px; /* Invalid value: height cannot be negative */
+    opacity: 0.7; /* Makes logo slightly transparent */
+}
+
+
+
+
+/* Styling for the main heading */
+.winners2020 h1 {
+    text-align: center; /* Centers the heading */
+    margin-top: 20px; /* Adds space above the heading */
+    font-size: 100px; /* Defines the font size */
+    font-family: 'CustomFont', sans-serif; /* Uses the custom font */
+    position: relative; /* Allows relative positioning */
+    color: #ffffff; /* Sets text color to white */
+    animation: glitch-text 2s infinite; /* Applies a glitch effect animation */
+}
+
+/* Background styling for the winners2020 page */
+.winners2020 {
+    background-image: url('https://www.godisageek.com/wp-content/uploads/The-Last-of-Us-Part-2-remastered.jpg'); /* Sets the background image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the background image */
+    width: 100%; /* Makes the section span the full width */
+    min-height: 150vh; /* Sets a minimum height larger than the screen height */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Style for the button container */
+.winners2020 .top-right-buttons {
+    position: absolute; /* Positions buttons relative to the top-right */
+    top: 160px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    display: flex; /* Enables flexible layout */
+    flex-direction: column; /* Arranges buttons vertically */
+    gap: 20px; /* Adds space between buttons */
+    z-index: 1; /* Ensures buttons appear above other elements */
+}
+
+/* Style for the individual buttons */
+.winners2020 .top-right-buttons button {
+    font-size: 20px; /* Sets the font size */
+    padding: 10px 15px; /* Adds padding inside the button */
+    background-color: #33cfff; /* Defines button background color */
+    color: black; /* Sets text color */
+    margin: 10px 0; /* Adds vertical spacing between buttons */
+    border: 5px solid transparent; /* Hides border */
+    border-radius: 5px; /* Rounds the button edges */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: all 0.3s ease; /* Adds smooth transition effect */
+}
+
+/* Hover effect for buttons */
+.winners2020 .top-right-buttons button:hover {
+    background-color: rgb(0, 255, 191); /* Changes button color on hover */
+    border-color: red; /* Changes border color */
+    border-width: 7px; /* Increases border thickness */
+}
+
+/* Style for the container */
+.winners2020 .container {
+    position: relative; /* Positions content relative to this container */
+    width: 1000; /* Defines the width */
+}
+
+/* Custom font import */
+@font-face {
+    font-family: 'CustomFont'; /* Defines a custom font */
+    src: url('The\ Last\ Of\ Us\ Rough.ttf') format('truetype'); /* Links to the font file */
+    font-weight: normal; /* Sets font weight */
+    font-style: normal; /* Sets font style */
+}
+
+/* Styling for subheadings */
+.winners2020 h2 {
+    color: rgb(255, 255, 255); /* Sets text color to white */
+    font-size: 80px; /* Defines font size */
+    font-family: 'CustomFont'; /* Uses the custom font */
+    margin-top: -30px; /* Adjusts spacing above the heading */
+    margin-left: 10px; /* Adds left margin */
+}
+
+/* Styling for paragraphs */
+.winners2020 p {
+    position: absolute; /* Positions text freely */
+    top: 235px; /* Moves paragraph down */
+    left: -10px; /* Adjusts left positioning */
+    background-color: rgba(0, 0, 0, 0.7); /* Adds a semi-transparent black background */
+    color: rgb(255, 255, 255); /* Sets text color to white */
+    font-family: 'CustomFont'; /* Uses the custom font */
+    font-size: 30px; /* Defines font size */
+    text-align: left; /* Aligns text to the left */
+    padding: 15px 20px; /* Adds space inside the paragraph */
+    border-radius: 50px; /* Rounds the paragraph edges */
+}
+
+/* Styling for the dropdown menu */
+.winners2020 .dropdown-content {
+    background-color: black; /* Sets the background color to black */
+}
+
+/* Styling for dropdown links */
+.winners2020 .dropdown-content a {
+    font-family: 'CustomFont', sans-serif; /* Uses the custom font */
+    font-size: 24px; /* Defines font size */
+    color: white; /* Sets text color to white */
+    padding: 8px 16px; /* Adds spacing */
+    text-decoration: none; /* Removes underline */
+    display: block; /* Ensures links appear in block format */
+}
+
+/* Styling for the video container */
+.winners2020 .video-container { 
+    position: absolute; /* Allows free positioning */
+    top: 415px; /* Moves the video higher */
+    left: 80%; /* Centers the video */
+    transform: translateX(-50%); /* Adjusts centering */
+    width: 480px; /* Defines a small rectangular size */
+    height: 255px; /* Adjusts height */
+    border: 3px solid #333; /* Adds a subtle border */
+    border-radius: 10px; /* Rounds the edges */
+    overflow: hidden; /* Prevents content from spilling */
+    z-index: 1; /* Places it above the background */
+}
+
+/* Styling for the video */
+.winners2020 .video-container video { 
+    width: 100%; /* Makes the video fit inside the container */
+    height: 100%; /* Ensures video fills container */
+    object-fit: cover; /* Adjusts how the video scales */
+}
+
+
+
+
+
+/* Style for the button container */
+.winners2021 .top-right-buttons {
+    position: absolute; /* Positions the button container relative to the page */
+    top: 160px; /* Distance from the top edge of the page */
+    right: 20px; /* Distance from the right edge of the page */
+    display: flex; /* Enables flexible layout for button arrangement */
+    flex-direction: column; /* Arranges buttons vertically */
+    gap: 20px; /* Adds space between buttons */
+    z-index: 1; /* Ensures buttons appear above other elements */
+}
+
+/* Style for the individual buttons */
+.winners2021 .top-right-buttons button {
+    font-size: 20px; /* Sets the text size */
+    padding: 10px 15px; /* Adds space inside the button for better appearance */
+    background-color: #33cfff; /* Defines the button's background color */
+    color: black; /* Sets text color */
+    margin: 10px 0; /* Adds vertical spacing between buttons */
+    border: 5px solid transparent; /* Creates an invisible border */
+    border-radius: 5px; /* Rounds the button edges */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering */
+    transition: all 0.3s ease; /* Adds a smooth hover transition effect */
+}
+
+/* Hover effect for buttons */
+.winners2021 .top-right-buttons button:hover {
+    background-color: rgb(0, 255, 191); /* Changes button color on hover */
+    border-color: red; /* Changes border color */
+    border-width: 7px; /* Increases border thickness */
+}
+
+/* Style for the container */
+.winners2021 .container {
+    position: relative; /* Positions the container relative to its parent */
+    width: 1000; /* Sets the container width */
+}
+
+/* Background styling for dropdown menu */
+.winners2021 .dropdown-content {
+    background-color: rgb(255, 247, 0); /* Sets the dropdown background to yellow */
+}
+
+/* Styling for dropdown menu links */
+.winners2021 .dropdown-content a {
+    font-family: 'CustomFont2'; /* Uses a custom font */
+    font-size: 17px; /* Defines text size */
+    color: rgb(255, 0, 0); /* Sets text color to red */
+    padding: 12px 16px; /* Adds space inside each link */
+    text-decoration: none; /* Removes default underline */
+    display: block; /* Ensures links appear in block format */
+}
+
+/* Custom font definition */
+@font-face {
+    font-family: 'CustomFont2'; /* Names the custom font */
+    src: url('Yume.otf') format('truetype'); /* Links to the font file */
+    font-weight: normal; /* Sets normal font weight */
+    font-style: normal; /* Sets normal font style */
+}
+
+/* Styling for the main heading */
+.winners2021 h1 {
+    font-family: 'CustomFont2'; /* Uses custom font for heading */
+    text-align: center; /* Centers the heading */
+    margin-top: 20px; /* Adds space above the heading */
+    font-size: 100px; /* Defines font size */
+    position: relative; /* Allows relative positioning adjustments */
+    color: hsl(60, 87%, 54%); /* Sets heading color to yellow */
+    animation: glitch-text 2s infinite; /* Applies a glitch animation */
+}
+
+/* Styling for subheadings */
+.winners2021 h2 {
+    top: -20px; /* Moves the heading slightly upwards */
+    left: 8px; /* Moves heading slightly left */
+    font-family: 'CustomFont2'; /* Uses custom font */
+    text-align: left; /* Aligns text to the left */
+    margin-top: -30px; /* Adds spacing above the heading */
+    font-size: 70px; /* Defines font size */
+    position: relative; /* Allows relative positioning */
+    color: hsl(60, 87%, 54%); /* Sets color to yellow */
+}
+
+/* Background styling */
+.winners2021 {
+    background-image: url('https://image.api.playstation.com/vulcan/img/rnd/202103/1515/taPq2ZcayML0Ry2KzkjuBvrS.png'); /* Sets the background image */
+    background-size: cover; /* Ensures image covers the entire background */
+    background-repeat: no-repeat; /* Prevents background image from repeating */
+    background-position: center; /* Centers the background image */
+    width: 100%; /* Makes the section span the full width */
+    min-height: 150vh; /* Sets minimum height larger than viewport */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Styling for paragraph text */
+.winners2021 p {
+    position: absolute; /* Allows free positioning */
+    top: 200px; /* Moves paragraph lower */
+    left: -10px; /* Moves paragraph slightly left */
+    background-color: rgba(0, 0, 0, 0.7); /* Sets semi-transparent background */
+    color: rgb(255, 255, 255); /* Defines text color as white */
+    font-family: 'CustomFont2'; /* Uses custom font */
+    font-size: 26px; /* Defines font size */
+    text-align: left; /* Aligns text to the left */
+    padding: 15px 20px; /* Adds space inside paragraph */
+    border-radius: 50px; /* Rounds paragraph edges */
+}
+
+/* Text color styling */
+.color-text {
+    color: hsl(60, 87%, 54%); /* Sets text color to yellow */
+}
+
+/* Styling for the video container */
+.winners2021 .video-container2 { 
+    position: absolute; /* Allows free positioning */
+    top: 415px; /* Moves the video higher */
+    left: 80%; /* Centers the video */
+    transform: translateX(-50%); /* Adjusts centering */
+    width: 480px; /* Defines a small rectangular size */
+    height: 255px; /* Adjusts height */
+    border: 3px solid #333; /* Adds a subtle border */
+    border-radius: 10px; /* Rounds the edges */
+    overflow: hidden; /* Prevents content from spilling */
+    z-index: -1; /* Places the video behind other elements */
+}
+
+/* Styling for the video */
+.winners2021 .video-container2 video { 
+    width: 100%; /* Makes the video fit inside the container */
+    height: 100%; /* Ensures video fills container */
+    object-fit: cover; /* Adjusts how the video scales */
+}
+
+
+
+
+
+/* Style for the button container */
+.winners2022 .top-right-buttons {
+    position: absolute; /* Positions the button container relative to the page */
+    top: 160px; /* Distance from the top edge */
+    right: 20px; /* Distance from the right edge */
+    display: flex; /* Enables flexible layout */
+    flex-direction: column; /* Arranges buttons vertically */
+    gap: 20px; /* Adds space between buttons */
+    z-index: 1; /* Ensures buttons appear above other elements */
+}
+
+/* Style for the individual buttons */
+.winners2022 .top-right-buttons button {
+    font-size: 20px; /* Defines the text size */
+    padding: 10px 15px; /* Adds space inside the button for better appearance */
+    background-color: #33cfff; /* Sets the button's background color */
+    color: black; /* Sets text color */
+    margin: 10px 0; /* Adds vertical spacing between buttons */
+    border: 5px solid transparent; /* Makes the default border invisible */
+    border-radius: 5px; /* Rounds the button edges */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering */
+    transition: all 0.3s ease; /* Adds a smooth hover transition effect */
+}
+
+/* Hover effect for buttons */
+.winners2022 .top-right-buttons button:hover {
+    background-color: rgb(0, 255, 191); /* Changes button color on hover */
+    border-color: red; /* Changes border color */
+    border-width: 7px; /* Increases border thickness */
+}
+
+/* Style for the container */
+.winners2022 .container {
+    position: relative; /* Ensures elements inside are positioned relative to this container */
+    width: 1000; /* Defines the container width */
+}
+
+/* Styling for the main heading */
+.winners2022 h1 {
+    font-family: 'CustomFont3'; /* Uses a custom font */
+    text-align: center; /* Centers the heading */
+    margin-top: 15px; /* Adds spacing above the heading */
+    font-size: 95px; /* Defines font size */
+    position: relative; /* Allows relative positioning adjustments */
+    color: #ceb542; /* Sets heading color */
+    animation: glitch-text 2s infinite; /* Applies a glitch animation */
+}
+
+/* Styling for subheadings */
+.winners2022 h2 {
+    font-size: 63px; /* Defines text size */
+    color: #ceb542; /* Sets color */
+    font-family: 'CustomFont3'; /* Uses a custom font */
+    margin-top: -50px; /* Adjusts spacing above the heading */
+    top: 30px; /* Moves heading down */
+    left: 10px; /* Moves heading slightly left */
+    text-align: left; /* Aligns text to the left */
+    position: relative; /* Allows positioning adjustments */
+}
+
+/* Custom font definition */
+@font-face {
+    font-family: 'CustomFont3'; /* Defines a custom font */
+    src: url('Mantinia\ Regular.otf') format('truetype'); /* Links to the font file */
+    font-weight: normal; /* Sets normal font weight */
+    font-style: normal; /* Sets normal font style */
+}
+
+/* Background styling */
+.winners2022 {
+    background-image: url('https://images.steamusercontent.com/ugc/2058741034012526512/379E6434B473E7BE31C50525EB946D4212A8C8B3/'); /* Sets the background image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents background image from repeating */
+    background-position: center; /* Centers the background image */
+    width: 100%; /* Makes the section span the full width */
+    min-height: 150vh; /* Sets minimum height larger than viewport */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Styling for paragraph text */
+.winners2022 p {
+    position: absolute; /* Allows free positioning */
+    top: 225px; /* Moves paragraph lower */
+    left: -10px; /* Moves paragraph slightly left */
+    color: rgb(255, 255, 255); /* Sets text color */
+    font-family: 'CustomFont3'; /* Uses custom font */
+    font-size: 26px; /* Defines font size */
+    text-align: left; /* Aligns text to the left */
+    padding: 15px 20px; /* Adds space inside paragraph */
+    border-radius: 50px; /* Rounds paragraph edges */
+}
+
+/* Background styling for dropdown menu */
+.winners2022 .dropdown-content {
+    background-color: rgb(20, 38, 131); /* Sets dropdown background color */
+}
+
+/* Styling for dropdown menu links */
+.winners2022 .dropdown-content a {
+    font-family: 'CustomFont3', sans-serif; /* Uses a custom font */
+    font-size: 20px; /* Defines text size */
+    color: rgb(206, 194, 22); /* Sets text color */
+    padding: 8px 16px; /* Adds space inside each link */
+    text-decoration: none; /* Removes default underline */
+    display: block; /* Ensures links appear in block format */
+}
+
+/* Text color styling */
+.winners2022 .color-text {
+    color: #ceb542; /* Sets text color */
+}
+
+/* Styling for the video container */
+.winners2022 .video-container3 { 
+    position: absolute; /* Allows free positioning */
+    top: 415px; /* Moves the video higher */
+    left: 83%; /* Centers the video */
+    transform: translateX(-50%); /* Adjusts centering */
+    width: 480px; /* Defines a small rectangular size */
+    height: 255px; /* Adjusts height */
+    border: 3px solid #333; /* Adds a subtle border */
+    border-radius: 10px; /* Rounds the edges */
+    overflow: hidden; /* Prevents content from spilling */
+    z-index: -1; /* Places the video behind other elements */
+}
+
+/* Styling for the video */
+.winners2022 .video-container3 video { 
+    width: 100%; /* Makes the video fit inside the container */
+    height: 100%; /* Ensures video fills container */
+    object-fit: cover; /* Adjusts how the video scales */
+}
+
+
+
+
+/* Style for the button container */
+.winners2023 .top-right-buttons {
+    position: absolute; /* Positions the button container relative to the page */
+    top: 160px; /* Distance from the top edge */
+    right: 20px; /* Distance from the right edge */
+    display: flex; /* Enables flexible layout */
+    flex-direction: column; /* Arranges buttons vertically */
+    gap: 20px; /* Adds space between buttons */
+    z-index: 1; /* Ensures buttons appear above other elements */
+}
+
+/* Style for the individual buttons */
+.winners2023 .top-right-buttons button {
+    font-size: 20px; /* Defines text size */
+    padding: 10px 15px; /* Adds space inside the button */
+    background-color: #33cfff; /* Sets button background color */
+    color: black; /* Defines text color */
+    margin: 10px 0; /* Adds vertical spacing */
+    border: 5px solid transparent; /* Creates an invisible border */
+    border-radius: 5px; /* Rounds the button edges */
+    cursor: pointer; /* Changes cursor to pointer when hovering */
+    transition: all 0.3s ease; /* Adds a smooth hover transition effect */
+}
+
+/* Hover effect for buttons */
+.winners2023 .top-right-buttons button:hover {
+    background-color: rgb(0, 255, 191); /* Changes button color on hover */
+    border-color: red; /* Changes border color */
+    border-width: 7px; /* Increases border thickness */
+}
+
+/* Style for the container */
+.winners2023 .container {
+    position: relative; /* Ensures elements inside are positioned relative to this container */
+    width: 1000; /* Defines the container width */
+}
+
+/* Styling for the main heading */
+.winners2023 h1 {
+    font-family: 'CustomFont4'; /* Uses a custom font */
+    text-align: center; /* Centers the heading */
+    margin-top: 15px; /* Adds spacing above the heading */
+    font-size: 95px; /* Defines font size */
+    position: relative; /* Allows relative positioning adjustments */
+    color: #e2bd19; /* Sets heading color */
+    animation: glitch-text 2s infinite; /* Applies a glitch animation */
+}
+
+/* Styling for subheadings */
+.winners2023 h2 {
+    font-size: 63px; /* Defines text size */
+    color: #e2bd19; /* Sets color */
+    font-family: 'CustomFont4'; /* Uses a custom font */
+    margin-top: -20px; /* Adjusts spacing above the heading */
+    top: 30px; /* Moves heading down */
+    left: 10px; /* Moves heading slightly left */
+    text-align: left; /* Aligns text to the left */
+    position: relative; /* Allows positioning adjustments */
+}
+
+/* Background styling for dropdown menu */
+.winners2023 .dropdown-content {
+    background-color: rgb(19, 32, 100); /* Sets dropdown background color */
+}
+
+/* Styling for dropdown menu links */
+.winners2023 .dropdown-content a {
+    font-family: 'CustomFont4'; /* Uses a custom font */
+    font-size: 20px; /* Defines text size */
+    color: rgb(206, 194, 22); /* Sets text color */
+    padding: 8px 16px; /* Adds space inside each link */
+    text-decoration: none; /* Removes default underline */
+    display: block; /* Ensures links appear in block format */
+}
+
+/* Custom font definition */
+@font-face {
+    font-family: 'CustomFont4'; /* Defines a custom font */
+    src: url('SHERWOOD.TTF') format('truetype'); /* Links to the font file */
+    font-weight: normal; /* Sets normal font weight */
+    font-style: normal; /* Sets normal font style */
+}
+
+/* Background styling */
+.winners2023 {
+    background-image: url('https://preview.redd.it/baldurs-gate-3-wallpaper-3440x1440-5120x1440-v0-a7eos4ir1jcb1.jpeg?width=3840&format=pjpg&auto=webp&s=b86e744bcb682b38023a9448de420bdf4e870965'); /* Sets the background image */
+    background-size: cover; /* Ensures image covers the entire background */
+    background-repeat: no-repeat; /* Prevents background image from repeating */
+    background-position: center; /* Centers the background image */
+    width: 100%; /* Makes the section span the full width */
+    min-height: 150vh; /* Sets minimum height larger than viewport */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Styling for paragraph text */
+.winners2023 p {
+    position: absolute; /* Allows free positioning */
+    top: 235px; /* Moves paragraph lower */
+    left: -10px; /* Moves paragraph slightly left */
+    color: rgb(255, 255, 255); /* Sets text color */
+    font-family: 'CustomFont4'; /* Uses custom font */
+    font-size: 26px; /* Defines font size */
+    text-align: left; /* Aligns text to the left */
+    padding: 15px 20px; /* Adds space inside paragraph */
+    border-radius: 50px; /* Rounds paragraph edges */
+    background-color: rgba(0, 0, 0, 0.7); /* Adds a semi-transparent black background */
+}
+
+/* Text color styling */
+.winners2023 .color-text {
+    color: rgb(206, 194, 22); /* Sets text color */
+}
+
+/* Styling for the video container */
+.winners2023 .video-container4 { 
+    position: absolute; /* Allows free positioning */
+    top: 415px; /* Moves the video higher */
+    left: 82%; /* Centers the video */
+    transform: translateX(-50%); /* Adjusts centering */
+    width: 480px; /* Defines a small rectangular size */
+    height: 255px; /* Adjusts height */
+    border: 3px solid #333; /* Adds a subtle border */
+    border-radius: 10px; /* Rounds the edges */
+    overflow: hidden; /* Prevents content from spilling */
+    z-index: -1; /* Places the video behind other elements */
+}
+
+/* Styling for the video */
+.winners2023 .video-container4 video { 
+    width: 100%; /* Makes the video fit inside the container */
+    height: 100%; /* Ensures video fills container */
+    object-fit: cover; /* Adjusts how the video scales */
+}
+
+
+
+
+
+
+/* Style for the button container */
+.winners2024 .top-right-buttons {
+    position: absolute; /* Positions the button container */
+    top: 160px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    display: flex; /* Enables flexible layout */
+    flex-direction: column; /* Arranges buttons vertically */
+    gap: 20px; /* Adds space between buttons */
+    z-index: 1; /* Ensures buttons appear above other elements */
+}
+
+/* Style for the individual buttons */
+.winners2024 .top-right-buttons button {
+    font-size: 20px; /* Sets text size */
+    padding: 10px 15px; /* Adds spacing inside the button */
+    background-color: #33cfff; /* Defines button background color */
+    color: black; /* Sets text color */
+    margin: 10px 0; /* Adds spacing between buttons */
+    border: 5px solid transparent; /* Keeps border invisible */
+    border-radius: 5px; /* Rounds the button edges */
+    cursor: pointer; /* Changes cursor to pointer when hovering */
+    transition: all 0.3s ease; /* Adds smooth hover effect */
+}
+
+/* Hover effect for buttons */
+.winners2024 .top-right-buttons button:hover {
+    background-color: rgb(0, 255, 191); /* Changes button color on hover */
+    border-color: red; /* Changes border color */
+    border-width: 7px; /* Increases border thickness */
+}
+
+/* Styling for main heading */
+.winners2024 h1 {
+    font-family: 'CustomFont5'; /* Uses custom font */
+    text-align: center; /* Centers the heading */
+    margin-top: 30px; /* Adds spacing above the heading */
+    font-size: 95px; /* Defines font size */
+    position: relative; /* Allows relative positioning adjustments */
+    color: #ffffff; /* Sets heading color */
+    animation: glitch-text 2s infinite; /* Applies glitch animation */
+}
+
+/* Styling for subheadings */
+.winners2024 h2 {
+    font-size: 60px; /* Defines text size */
+    color: #dfe312; /* Sets text color */
+    font-family: 'CustomFont5'; /* Uses custom font */
+    margin-top: -20px; /* Adjusts spacing above the heading */
+    top: 30px; /* Moves heading down */
+    left: 20px; /* Moves heading slightly left */
+    text-align: left; /* Aligns text to the left */
+    position: relative; /* Allows positioning adjustments */
+}
+
+/* Custom font definition */
+@font-face {
+    font-family: 'CustomFont5'; /* Defines a custom font */
+    src: url('ASTRO867.TTF') format('truetype'); /* Links to font file */
+    font-weight: normal; /* Sets normal font weight */
+    font-style: normal; /* Sets normal font style */
+}
+
+/* Background styling for dropdown menu */
+.winners2024 .dropdown-content {
+    background-color: rgb(15, 40, 165); /* Sets dropdown background color */
+}
+
+/* Styling for dropdown menu links */
+.winners2024 .dropdown-content a {
+    font-family: 'CustomFont5'; /* Uses custom font */
+    font-size: 20px; /* Defines text size */
+    color: rgb(255, 255, 255); /* Sets text color */
+    padding: 8px 16px; /* Adds spacing */
+    text-decoration: none; /* Removes underline */
+    display: block; /* Ensures links appear in block format */
+}
+
+/* Background styling */
+.winners2024 {
+    background-image: url('https://images5.alphacoders.com/137/1370580.jpeg'); /* Sets background image */
+    background-size: cover; /* Ensures image covers the entire background */
+    background-repeat: no-repeat; /* Prevents image from repeating */
+    background-position: center; /* Centers the image */
+    width: 100%; /* Makes the section span full width */
+    min-height: 150vh; /* Sets minimum height larger than viewport */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Styling for paragraph text */
+.winners2024 p {
+    position: absolute; /* Allows free positioning */
+    top: 250px; /* Moves paragraph lower */
+    left: -10px; /* Moves paragraph slightly left */
+    color: rgb(255, 255, 255); /* Sets text color */
+    font-family: 'CustomFont5'; /* Uses custom font */
+    font-size: 20px; /* Defines font size */
+    text-align: left; /* Aligns text to the left */
+    padding: 15px 20px; /* Adds spacing inside paragraph */
+    border-radius: 50px; /* Rounds paragraph edges */
+    background-color: rgba(0, 0, 0, 0.7); /* Adds semi-transparent black background */
+}
+
+/* Styling for the video container */
+.winners2024 .video-container5 { 
+    position: absolute; /* Allows free positioning */
+    top: 415px; /* Moves the video higher */
+    left: 82%; /* Centers the video */
+    transform: translateX(-50%); /* Adjusts centering */
+    width: 480px; /* Defines a small rectangular size */
+    height: 255px; /* Adjusts height */
+    border: 3px solid #333; /* Adds a subtle border */
+    border-radius: 10px; /* Rounds the edges */
+    overflow: hidden; /* Prevents content from spilling */
+    z-index: -1; /* Places the video behind other elements */
+}
+
+/* Styling for the video */
+.winners2024 .video-container5 video { 
+    width: 100%; /* Makes the video fit inside the container */
+    height: 100%; /* Ensures video fills container */
+    object-fit: cover; /* Adjusts how the video scales */
+}
